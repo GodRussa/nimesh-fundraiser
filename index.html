@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In support of Nimesh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* VOICE   calm, warm, honest — an accountability report for friends, not a campaign
+   IDEA    the printed report brought to life: one account, every rupee traced in and out
+   PICTURE the running balance, drawn as a ledger that fills and empties as you step through it
+   COLOUR/TYPE  white with soft cyan, lavender and violet light; indigo→purple→pink on key figures; Poppins
+   LAYOUT  hero with the total, then summary, contributors, reconciliation, final balance */
+:root{color-scheme:light;
+  --bg:#ffffff;--ink:#1e1a5f;--body:#56527a;--mute:#8f8cb0;--line:#e6e2f5;
+  --card:rgba(255,255,255,.8);--cardline:#ebe6fb;--tint:#f1ecff;
+  --purple:#8b45e6;--indigo:#3b3db8;--pink:#d77cf2;--g1:#2f2aa8;
+  --glow:0 24px 60px -24px rgba(108,78,240,.35);
+}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;background:#fff}
+body{margin:0;color:var(--ink);font:16px/1.6 Poppins,system-ui,sans-serif;overflow-x:clip;
+  background:
+   radial-gradient(900px 700px at 100% 0%,#c6f1fb 0%,rgba(198,241,251,0) 70%),
+   radial-gradient(800px 800px at 0% 26%,#e3deff 0%,rgba(227,222,255,0) 70%),
+   radial-gradient(900px 700px at 100% 46%,#ead9ff 0%,rgba(234,217,255,0) 70%),
+   radial-gradient(800px 700px at 0% 66%,#d6dcff 0%,rgba(214,220,255,0) 70%),
+   radial-gradient(900px 800px at 100% 86%,#d8bbff 0%,rgba(216,187,255,0) 70%),
+   radial-gradient(900px 600px at 0% 100%,#9fa9ff 0%,rgba(159,169,255,0) 70%),
+   #fff}
+/* soft halftone texture, as in the printed cover */
+.dots{position:relative}
+.dots::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(139,69,230,.13) 1.3px,transparent 1.8px);background-size:15px 15px;
+  -webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 60%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 60% 55% at 50% 60%,#000 0%,transparent 75%)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(5vw,18px)}
+.grad{background:linear-gradient(110deg,#2f2aa8 0%,#5b3fd8 35%,#8b45e6 65%,#e08af2 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{position:sticky;top:0;z-index:5;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(255,255,255,.62);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;align-items:center;overflow-x:auto;padding-block:10px}
+nav b{flex:none;font-weight:600;font-size:14px;margin-right:auto;white-space:nowrap;padding-right:12px}
+nav a{flex:none;color:var(--body);text-decoration:none;font-size:13.5px;padding:8px 12px;border-radius:99px;min-height:36px;display:inline-flex;align-items:center}
+nav a:hover,nav a:focus-visible{background:var(--tint);color:var(--purple);outline:none}
+section{padding:clamp(48px,7vw,88px) 0}
+.pill{display:inline-block;font-size:13px;font-weight:500;color:var(--purple);background:var(--tint);padding:4px 12px;border-radius:99px}
+h1,h2{line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin:14px 0 8px}
+.lede{color:var(--body);max-width:60ch;margin:0}
+.card{background:var(--card);border:1px solid var(--cardline);border-radius:20px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:var(--glow)}
+/* hero */
+.heroband{position:relative;isolation:isolate;padding-bottom:clamp(48px,7vw,90px)}
+.heroband::before{content:"";position:absolute;inset:0 0 -200px 0;z-index:-2;pointer-events:none;background:radial-gradient(80% 70% at 100% 0%,#bdeefb 0%,rgba(191,238,251,0) 70%),radial-gradient(75% 70% at 0% 95%,#8f9cff 0%,rgba(154,166,255,0) 70%),radial-gradient(75% 70% at 100% 95%,#c08cff 0%,rgba(195,145,255,0) 70%),radial-gradient(50% 50% at 0% 35%,#e3deff 0%,rgba(227,222,255,0) 70%);-webkit-mask-image:linear-gradient(#000 74%,transparent);mask-image:linear-gradient(#000 74%,transparent)}
+.hero{text-align:center;padding-top:clamp(56px,10vw,120px)}
+.hero .kicker{font-size:14px;font-weight:500;color:var(--ink)}
+.hero h1{font-weight:700;margin-top:28px}
+.hero h1 .a{display:block;font-size:clamp(24px,3.4vw,34px)}
+.hero h1 .n{filter:drop-shadow(0 14px 34px rgba(110,70,240,.35));display:block;font-size:clamp(76px,15vw,150px);letter-spacing:-.02em;line-height:1}
+.hero h1 .f{display:block;font-size:clamp(24px,3.4vw,34px);color:var(--ink)}
+.hero .dates{color:var(--purple);font-weight:500;margin:16px 0 0}
+.hero p.lede{margin:22px auto 0;max-width:52ch}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:40px auto 0;max-width:860px;padding:22px 8px}
+.stats div{padding:4px 12px;text-align:center}
+.stats div+div{border-left:1px solid var(--line)}
+.stats small{display:block;color:var(--body);font-size:13.5px}
+.stats strong{display:block;font-size:clamp(18px,2.6vw,26px);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.by{color:var(--mute);font-size:13px;margin-top:22px}
+/* summary */
+.total{margin:28px 0 6px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.total .big{font-size:clamp(48px,9vw,92px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.total .u{color:var(--purple);font-weight:500}
+.split{margin-top:30px;padding:22px}
+.bar{display:flex;height:14px;border-radius:99px;overflow:hidden;background:var(--tint)}
+.bar span{display:block;height:100%;transition:filter .2s}
+.bar .b{background:linear-gradient(90deg,var(--indigo),var(--purple))}
+.bar .c{background:var(--pink)}
+.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.legend button{all:unset;cursor:pointer;padding:14px 16px;border-radius:14px;border:1px solid var(--line);display:grid;gap:2px}
+.legend button:hover,.legend button:focus-visible,.legend button.on{background:var(--tint);border-color:transparent}
+.legend .k{font-size:13.5px;color:var(--body);display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.legend .v{font-size:clamp(18px,2.4vw,22px);font-weight:700;white-space:nowrap}
+.legend .s{font-size:13px;color:var(--mute)}
+.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.mini .card{padding:18px 20px}
+.mini small{color:var(--body);font-size:13.5px}
+.mini strong{display:block;font-size:clamp(30px,5vw,44px);font-weight:700;line-height:1.15}
+.flow{margin-top:34px;padding:24px}
+.flow h3{margin:0 0 22px;font-size:17px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:relative}
+.steps::before{content:"";position:absolute;left:8px;right:8px;top:30px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--indigo),var(--purple),var(--pink))}
+.step{all:unset;cursor:pointer;position:relative;padding:0 6px;display:block}
+.step:nth-child(2){text-align:center}.step:nth-child(3){text-align:right}
+.step .d{font-size:13px;color:var(--purple);font-weight:500;display:block;height:20px}
+.step i{display:block;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--purple);margin:4px 0 14px;transition:transform .2s}
+.step:nth-child(2) i{margin-inline:auto}.step:nth-child(3) i{margin-left:auto}
+.step:hover i,.step:focus-visible i,.step.on i{transform:scale(1.35);background:var(--purple)}
+.step b{display:block;font-size:15px}.step span.s{font-size:13.5px;color:var(--body)}
+.stepnote{margin:20px 0 0;padding:14px 16px;border-radius:14px;background:var(--tint);color:var(--ink);font-size:14.5px;min-height:52px}
+/* contributors */
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 18px}
+.tools input{flex:1 1 240px;font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--cardline);border-radius:99px;padding:11px 18px;min-height:46px}
+.tools input:focus{outline:2px solid var(--purple);outline-offset:1px}
+.count{align-self:center;color:var(--mute);font-size:13.5px}
+.names{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;padding:18px;margin:0;list-style:none}
+.names li{display:flex;flex-wrap:wrap;align-items:center;column-gap:10px;row-gap:0;padding:10px 14px;border-radius:12px;font-weight:500;transition:background .2s,transform .2s}
+.names li:hover{background:var(--tint);transform:translateY(-1px)}
+.names li em{white-space:nowrap;font-style:italic;font-weight:400;font-size:13px;color:var(--purple)}
+.names li.hide{display:none}
+.names li.hit{background:var(--tint)}
+.empty{display:none;color:var(--body);padding:8px 18px 18px}
+.thanks{margin-top:20px;color:var(--body);font-style:italic;font-size:14.5px}
+.thanks strong{display:block;font-style:normal;font-size:clamp(20px,3vw,26px);margin-top:6px}
+/* reconciliation */
+.ledger{margin-top:28px;padding:10px 6px}
+.row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.4fr) auto;gap:16px;align-items:center;padding:12px 16px;border-radius:14px;cursor:pointer;transition:background .2s,opacity .3s}
+.row+.row{margin-top:2px}
+.row:hover,.row:focus-visible{background:var(--tint);outline:none}
+.row .l b{display:block;font-weight:500;font-size:15px}.row .l small{color:var(--mute);font-size:13px}
+.row .amt{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap;text-align:right}
+.track{position:relative;height:12px;border-radius:99px;background:var(--tint);overflow:hidden}
+.track span{position:absolute;top:0;bottom:0;border-radius:99px;transition:left .6s ease,width .6s ease}
+.row.add .track span{background:linear-gradient(90deg,var(--indigo),var(--purple))}
+.row.sub .track span{background:var(--pink)}
+.row.sum{background:var(--tint)}.row.sum .l b{font-weight:700}.row.sum .amt{font-weight:700;font-size:17px}
+.row.sum .track span{background:linear-gradient(90deg,var(--g1),var(--purple),var(--pink))}
+.ok{display:inline-block;margin-top:2px;font-size:12.5px;font-weight:500;color:var(--purple);background:#fff;padding:1px 10px;border-radius:99px}
+.ledger.playing .row{opacity:.35}.ledger.playing .row.lit{opacity:1}
+.controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
+.btn{font:inherit;font-weight:500;font-size:15px;border:0;border-radius:99px;padding:11px 22px;min-height:46px;cursor:pointer;color:#fff;background:linear-gradient(100deg,#3b3db8,#8b45e6)}
+.btn:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
+.run{color:var(--body);font-size:14.5px}.run strong{color:var(--ink);font-variant-numeric:tabular-nums}
+.detail{margin-top:14px;color:var(--body);font-size:14.5px;min-height:24px}
+.ref{color:var(--mute);font-size:13px;white-space:nowrap}
+/* final */
+.zero{display:flex;align-items:baseline;gap:12px;margin:22px 0 6px}
+.zero .big{filter:drop-shadow(0 14px 34px rgba(110,70,240,.3));font-size:clamp(88px,17vw,170px);font-weight:700;line-height:.95}
+.final{margin-top:26px;padding:8px 22px}
+.final div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-weight:500}
+.final div:last-child{border:0;font-weight:700}
+.final span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{color:var(--mute);font-size:13.5px;margin:10px 0 0}
+.ask{margin-top:54px;max-width:62ch}
+.ask h3{font-size:24px;margin:0 0 8px}
+.ask p{color:var(--body);margin:0 0 10px}
+.ask .ty{color:var(--purple);font-weight:500}
+.sign{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:52px}
+.sign div{border-top:1px solid var(--line);padding-top:10px;min-width:180px}
+.sign b{display:block}.sign small{color:var(--mute)}
+footer{padding:36px 0 48px;color:var(--mute);font-size:13px;text-align:center}
+@media(max-width:600px){
+  .stats,.mini{grid-template-columns:minmax(0,1fr)}
+  .stats div+div{border-left:0;border-top:1px solid var(--line);padding-top:14px;margin-top:10px}
+  .legend{grid-template-columns:minmax(0,1fr)}
+  .names{grid-template-columns:repeat(2,minmax(0,1fr));padding:10px}.names li{padding:9px 8px;font-size:15px}
+  .steps{grid-template-columns:minmax(0,1fr);gap:18px}.steps::before{display:none}
+  .step,.step:nth-child(2),.step:nth-child(3){text-align:left}.step:nth-child(2) i,.step:nth-child(3) i{margin:4px 0 10px}
+  .row{grid-template-columns:minmax(0,1fr) auto}.row .track{grid-column:1/-1;grid-row:2}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>In support of Nimesh</b>
+<a href="#summary">Summary</a><a href="#contributors">Contributors</a><a href="#reconciliation">Bank check</a><a href="#final">Final balance</a></div></nav>
+
+<div class="heroband dots"><header class="hero wrap">
+  <div class="kicker">Fundraising Accountability Report</div>
+  <h1><span class="a grad">In support of</span><span class="n grad">Nimesh</span><span class="f">&amp; his family</span></h1>
+  <p class="dates">Contributions received 19 – 23 November 2026</p>
+  <p class="lede">Friends came together to support Nimesh and his family with funeral expenses. Every contribution, in cash or by bank transfer, went into one account and was transferred to Nimesh in full on 23 November 2026.</p>
+  <div class="stats card">
+    <div><small>Total collected</small><strong data-count="192406.62" data-prefix="LKR ">LKR 192,406.62</strong></div>
+    <div><small>Contributions</small><strong>29</strong></div>
+    <div><small>Transferred to Nimesh</small><strong class="grad">LKR 193,000.00</strong></div>
+  </div>
+  <div class="by">Prepared by Rusiru · All amounts in Sri Lankan rupees</div>
+</header></div>
+
+<section id="summary"><div class="wrap">
+  <span class="pill">Donation collection</span>
+  <h2>Summary of funds received</h2>
+  <div class="total"><span class="big grad" id="bigTotal">192,406.62</span><span class="u">LKR</span></div>
+  <p class="lede">From 29 contributions between 19 and 23 November 2026</p>
+
+  <div class="split card">
+    <div class="bar" aria-hidden="true"><span class="b" style="width:96.36%"></span><span class="c" style="width:3.64%"></span></div>
+    <div class="legend">
+      <button data-ch="b"><span class="k"><i class="dot" style="background:var(--indigo)"></i>Bank transfer · 96.4%</span><span class="v">LKR 185,406.62</span><span class="s">25 contributions</span></button>
+      <button data-ch="c"><span class="k"><i class="dot" style="background:var(--pink)"></i>Cash, deposited 23 Nov · 3.6%</span><span class="v">LKR 7,000.00</span><span class="s">4 contributions</span></button>
+    </div>
+  </div>
+
+  <div class="mini">
+    <div class="card"><small>Contributions</small><strong class="grad">29</strong></div>
+    <div class="card"><small>Named contributors</small><strong class="grad">27</strong></div>
+    <div class="card"><small>Days of collection</small><strong class="grad">5</strong></div>
+  </div>
+
+  <div class="flow card">
+    <h3>How it moved</h3>
+    <div class="steps">
+      <button class="step on" data-i="0"><span class="d">19 – 23 Nov</span><i></i><b>Contributions received</b><span class="s">Bank transfer and cash</span></button>
+      <button class="step" data-i="1"><span class="d">23 Nov</span><i></i><b>Cash deposited</b><span class="s">LKR 7,000.00 banked</span></button>
+      <button class="step" data-i="2"><span class="d">23 Nov · 6:02 pm</span><i></i><b>Transferred to Nimesh</b><span class="s">LKR 193,000.00</span></button>
+    </div>
+    <p class="stepnote" id="stepnote"></p>
+  </div>
+</div></section>
+
+<section id="contributors"><div class="wrap">
+  <span class="pill">Detailed donor register</span>
+  <h2>Those who contributed</h2>
+  <div class="tools">
+    <input id="q" type="search" placeholder="Find a name" aria-label="Find a name" autocomplete="off">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="card"><ul class="names" id="names"></ul><p class="empty" id="empty">No name matches that search.</p></div>
+  <div class="thanks">…and one gift that arrived by bank transfer without a sender's name.<strong class="grad">Thank you, every one of you.</strong></div>
+</div></section>
+
+<section id="reconciliation"><div class="wrap">
+  <span class="pill">Bank reconciliation</span>
+  <h2>Checked against the bank</h2>
+  <p class="lede">HNB savings account ending 7663, statement for 19 – 23 November 2026. Tap a line for its bank reference, or play it through.</p>
+  <div class="ledger card" id="ledger"></div>
+  <div class="controls">
+    <button class="btn" id="play">Play the account through</button>
+    <span class="run">Balance: <strong id="run">LKR 31.15</strong></span>
+  </div>
+  <p class="detail" id="detail"></p>
+</div></section>
+
+<section id="final" class="dots"><div class="wrap">
+  <span class="pill">Final balance</span>
+  <h2>Where it all ended up</h2>
+  <p class="lede" style="margin-top:14px">Donated funds remaining</p>
+  <div class="zero"><span class="big grad">0.00</span><span class="u" style="color:var(--purple);font-weight:500">LKR</span></div>
+  <p class="lede">Everything collected was transferred to Nimesh on 23 November 2026.</p>
+  <div class="final card">
+    <div><span>Total collected</span><span>192,406.62</span></div>
+    <div><span>Transferred to Nimesh</span><span>– 193,000.00</span></div>
+    <div><span>Added from my own balance</span><span>+ 593.38</span></div>
+    <div><span>Remaining</span><span style="color:var(--purple)">0.00</span></div>
+  </div>
+  <p class="note">The LKR 31.15 left in the account is from my own opening balance.</p>
+
+  <div class="ask">
+    <h3>Any questions?</h3>
+    <p>I am responsible for this report. If anything here is unclear, or you would like to see the receipt for your own contribution, please feel free to ask me directly.</p>
+    <p class="ty">Thank you for standing with Nimesh and his family.</p>
+  </div>
+  <div class="sign"><div><b>Rusiru</b><small>Organiser</small></div><div><b>23 November 2026</b><small>Date</small></div></div>
+</div></section>
+
+<footer>In support of Nimesh &amp; his family · November 2026</footer>
+
+<script>
+{
+const fmt = n => n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* count-up on the hero total */
+const countEls = [...document.querySelectorAll('[data-count]'), document.getElementById('bigTotal')];
+const countUp = (el, to, prefix='') => {
+  if (reduce) return;
+  const t0 = performance.now(), dur = 1400;
+  const tick = now => { const p = Math.min(1, (now - t0) / dur), e = 1 - (1 - p) ** 3;
+    el.textContent = prefix + fmt(to * e); if (p < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+};
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { countUp(e.target, 192406.62, e.target.dataset.prefix || ''); io.unobserve(e.target); } }), {threshold:.6});
+countEls.forEach(el => io.observe(el));
+
+/* channel legend highlights its share of the bar */
+const bars = {b: document.querySelector('.bar .b'), c: document.querySelector('.bar .c')};
+document.querySelectorAll('.legend button').forEach(btn => {
+  const on = () => { document.querySelectorAll('.legend button').forEach(x => x.classList.toggle('on', x === btn));
+    for (const k in bars) bars[k].style.filter = k === btn.dataset.ch ? 'none' : 'saturate(.3) opacity(.45)'; };
+  const off = () => { btn.classList.remove('on'); for (const k in bars) bars[k].style.filter = 'none'; };
+  btn.addEventListener('mouseenter', on); btn.addEventListener('focus', on);
+  btn.addEventListener('mouseleave', off); btn.addEventListener('blur', off); btn.addEventListener('click', on);
+});
+
+/* how it moved */
+const notes = [
+  '29 contributions arrived between 19 and 23 November: 25 by bank transfer and 4 in cash.',
+  'All LKR 7,000.00 received in cash was deposited into the same HNB account on 23 November (ref. SD5536721).',
+  'LKR 193,000.00 was sent to Nimesh in one payment on 23 November at 6:02 pm (ref. SD5976267).'
+];
+const steps = document.querySelectorAll('.step'), note = document.getElementById('stepnote');
+const pick = i => { steps.forEach((s, j) => s.classList.toggle('on', j === i)); note.textContent = notes[i]; };
+steps.forEach(s => s.addEventListener('click', () => pick(+s.dataset.i)));
+pick(0);
+
+/* contributors — same order as the printed report */
+const names = ['Oshadi','Kavindya','Hiruni','Chanith & Akka','Chathuni','Huvin','Hirusha','Chathurya','Kasun','Dilshan','Malki',
+  'Nimesh|friend of Nimesh','Prathibha','Dananjala','Himasha','Sahan','Viniru & Shen','Pinidi','PPM','Saumya & Chathumika',
+  'Pethmi','Udari & Ishara','Chamodi','Usith','Shanu','Monika','Rusiru'];
+const dots = ['var(--indigo)','var(--purple)','var(--pink)'];
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const ul = document.getElementById('names');
+ul.innerHTML = names.map((n, i) => { const [a, b] = n.split('|');
+  return `<li data-n="${esc(a.toLowerCase())}"><i class="dot" style="background:${dots[i % 3]}"></i>${esc(a)}${b ? ` <em>(${esc(b)})</em>` : ''}</li>`; }).join('');
+const q = document.getElementById('q'), count = document.getElementById('count'), empty = document.getElementById('empty');
+const filter = () => { const v = q.value.trim().toLowerCase(); let shown = 0;
+  ul.querySelectorAll('li').forEach(li => { const m = !v || li.dataset.n.includes(v);
+    li.classList.toggle('hide', !m); li.classList.toggle('hit', !!v && m); if (m) shown++; });
+  count.textContent = v ? `${shown} of ${names.length} names` : `${names.length} names`;
+  empty.style.display = shown ? 'none' : 'block'; };
+q.addEventListener('input', filter); filter();
+
+/* reconciliation ledger: each line is a bar on the same scale as the account */
+const MAX = 193056.15;
+const L = [
+  {k:'add', t:'Opening balance, 19 Nov', s:'My own money, not a donation', ref:'SD1260237', a:649.53, from:0, to:649.53},
+  {k:'add', t:'Bank transfer contributions', s:'25 credits', ref:'SD1350403 – SD5921775', a:185406.62, from:649.53, to:186056.15, sign:'+ '},
+  {k:'add', t:'Cash contributions, deposited', s:'4 gifts, 23 Nov', ref:'SD5536721', a:7000, from:186056.15, to:193056.15, sign:'+ '},
+  {k:'sum', t:'Balance before the transfer', ok:true, ref:'Statement balance after SD5536721 and the 23 Nov credits', a:193056.15, from:0, to:193056.15},
+  {k:'sub', t:'Transfer to Nimesh, 23 Nov', s:'One payment, 6:02 pm', ref:'SD5976267', a:193000, from:56.15, to:193056.15, sign:'– '},
+  {k:'sub', t:'Bank charge on the transfer', s:'Charged with the transfer', ref:'SD5976267', a:25, from:31.15, to:56.15, sign:'– '},
+  {k:'sum', t:'Closing balance, 23 Nov', ok:true, ref:'Available balance on the statement', a:31.15, from:0, to:31.15},
+];
+const run = [649.53, 186056.15, 193056.15, 193056.15, 56.15, 31.15, 31.15];
+const led = document.getElementById('ledger'), detail = document.getElementById('detail'), runEl = document.getElementById('run');
+led.innerHTML = L.map((r, i) => `<div class="row ${r.k}" tabindex="0" data-i="${i}">
+  <div class="l"><b>${r.t}</b>${r.ok ? '<span class="ok">Matches statement</span>' : `<small>${r.s}</small>`}</div>
+  <div class="track"><span style="left:${(r.from / MAX * 100).toFixed(3)}%;width:${Math.max(.6, (r.to - r.from) / MAX * 100).toFixed(3)}%"></span></div>
+  <div class="amt">${r.sign || ''}${fmt(r.a)}</div></div>`).join('');
+const rows = [...led.querySelectorAll('.row')];
+const show = i => { const r = L[i]; detail.innerHTML = `<b>${r.t}</b> · <span class="ref">${r.ref}</span>`; runEl.textContent = 'LKR ' + fmt(run[i]); };
+rows.forEach(row => { const i = +row.dataset.i;
+  row.addEventListener('click', () => show(i));
+  row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); } }); });
+
+let timer = null;
+const play = document.getElementById('play');
+play.addEventListener('click', () => {
+  clearInterval(timer); led.classList.add('playing'); rows.forEach(r => r.classList.remove('lit'));
+  let i = 0; play.textContent = 'Playing…';
+  const stepFn = () => { rows.forEach((r, j) => r.classList.toggle('lit', j === i)); show(i); i++;
+    if (i === rows.length) { clearInterval(timer);
+      setTimeout(() => { led.classList.remove('playing'); play.textContent = 'Play it again'; }, 1400); } };
+  stepFn(); timer = setInterval(stepFn, reduce ? 700 : 1300);
+});
+}
+</script>
+</body>
+</html>
